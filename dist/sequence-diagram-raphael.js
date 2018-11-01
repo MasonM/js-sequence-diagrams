@@ -708,41 +708,48 @@ var parser = function() {
                     return 15;
 
                   case 8:
-                    return 13;
+                    return this.begin("title"), 13;
 
                   case 9:
-                    return 20;
+                    return this.popState(), 31;
 
                   case 10:
+                    return 20;
+
                   case 11:
+                  case 12:
                     return 24;
 
-                  case 12:
+                  case 13:
                     return 28;
 
-                  case 13:
+                  case 14:
                     return 27;
 
-                  case 14:
+                  case 15:
                     return 30;
 
-                  case 15:
+                  case 16:
                     return 29;
 
-                  case 16:
+                  case 17:
                     return 31;
 
-                  case 17:
+                  case 18:
                     return 5;
 
-                  case 18:
+                  case 19:
                     return "INVALID";
                 }
             },
-            rules: [ /^(?:[\r\n]+)/i, /^(?:\s+)/i, /^(?:#[^\r\n]*)/i, /^(?:participant\b)/i, /^(?:left of\b)/i, /^(?:right of\b)/i, /^(?:over\b)/i, /^(?:note\b)/i, /^(?:title\b)/i, /^(?:,)/i, /^(?:[^\->:,\r\n"]+)/i, /^(?:"[^"]+")/i, /^(?:--)/i, /^(?:-)/i, /^(?:>>)/i, /^(?:>)/i, /^(?:[^\r\n]+)/i, /^(?:$)/i, /^(?:.)/i ],
+            rules: [ /^(?:[\r\n]+)/i, /^(?:\s+)/i, /^(?:#[^\r\n]*)/i, /^(?:participant\b)/i, /^(?:left of\b)/i, /^(?:right of\b)/i, /^(?:over\b)/i, /^(?:note\b)/i, /^(?:title\b)/i, /^(?:[^\r\n]+)/i, /^(?:,)/i, /^(?:[^\->:,\r\n"]+)/i, /^(?:"[^"]+")/i, /^(?:--)/i, /^(?:-)/i, /^(?:>>)/i, /^(?:>)/i, /^(?:[^\r\n]+)/i, /^(?:$)/i, /^(?:.)/i ],
             conditions: {
+                title: {
+                    rules: [ 9 ],
+                    inclusive: !1
+                },
                 INITIAL: {
-                    rules: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ],
+                    rules: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
                     inclusive: !0
                 }
             }
